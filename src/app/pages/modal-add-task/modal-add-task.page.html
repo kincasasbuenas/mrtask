@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="dark" (click)="closeModal()">
+              <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+      </ion-buttons>
+     <ion-title>New Task</ion-title>
+     <ion-buttons slot="end">
+         <ion-button color="dark" (click)="saveTask()" >
+             <ion-icon name="checkmark"></ion-icon>
+           </ion-button>
+     </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <form   #f="ngForm">
+      <ion-item>
+        <ion-textarea placeholder="Title task" name="title" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea placeholder="Description task" name="description"></ion-textarea>
+      </ion-item>
+
+      <ion-list>
+        <ion-list-header>
+          Assign information
+        </ion-list-header>
+        <ion-item  (click)="ModalSelectState()">
+          <ion-icon name="help"></ion-icon>
+          <ion-label class="ion-margin-start">Sin Asignar</ion-label>
+          <ion-input name="user"
+                     type="email"></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-icon name="open"></ion-icon>
+          <ion-label class="ion-margin-start">Open</ion-label>
+          <ion-input name="status"
+                     type="number"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+
+
+    </form>
+  </div>
+</ion-content>

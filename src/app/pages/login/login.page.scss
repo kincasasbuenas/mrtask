@@ -1,0 +1,31 @@
+app-login {
+    ion-content {
+        background: #fff;
+    }
+    img.logo-login {
+        width: 250px;
+        height: 150px;
+    }
+    h3 {
+        color: white;
+    }
+    .top-20 {
+        margin-top: 20%;
+    }
+    .top-5 {
+        margin-top: 5%;
+    }
+}
+
+img{
+  height: 150px;
+}
+form{
+  width: 100%!important;
+}
+.invalid-feedback{
+  color: red;
+}
+.label-invalid{
+  padding: 0px;
+}

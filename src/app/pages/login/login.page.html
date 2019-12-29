@@ -1,0 +1,73 @@
+<ion-content padding text-center>
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col class="top-20">
+
+                <img src="./assets/imgs/logo.png">
+
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="top-20">
+
+                <h3>Mr Task</h3>
+
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <form   #f="ngForm" novalidate="" class="needs-validation" [ngClass]="{'was-validated': (email.errors?.required || password.errors?.minlength) && email.touched}">
+            <ion-col size="12" class="top-5">
+                <ion-list>
+                  <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input name="email"
+                               type="email"
+                               [(ngModel)]="usuario.email"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                               #email="ngModel"
+                               required></ion-input>
+                  </ion-item>
+                </ion-list>
+                <ion-list *ngIf="email.touched" class="label-invalid">
+                  <div *ngIf="email.errors?.required && email.touched" class="invalid-feedback">
+                    *Email is required
+                  </div>
+                  <div *ngIf="email.errors?.pattern && email.touched" class="invalid-feedback">
+                    *Email invalid
+                  </div>
+                </ion-list>
+            </ion-col>
+
+            <ion-col size="12" class="top-5">
+                <ion-list>
+                  <ion-item>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input name="password"
+                               type="password"
+                               [(ngModel)]="usuario.password"
+                               required
+                               minlength="5"
+                               #password="ngModel"></ion-input>
+                  </ion-item>
+                </ion-list>
+                <ion-list *ngIf="email.touched" class="label-invalid">
+                  <div *ngIf="password.errors?.required && password.touched" class="invalid-feedback">
+                    *password is required
+                  </div>
+                  <div *ngIf="password.errors?.minlength && password.touched" class="invalid-feedback">
+                    *Min {{password.errors.minlength.requiredLength}} characteres.
+                  </div>
+                </ion-list>
+            </ion-col>
+
+            <ion-col size="12"class="top-5">
+              <ion-button expand="block" (click)="login(f)" [disabled]="!f.valid">Login</ion-button>
+            </ion-col>
+        </form>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "mrtask",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

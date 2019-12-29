@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Users
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        My List of User
+      </ion-list-header>
+      <ion-item *ngFor="let user of listUser">
+        <ion-avatar slot="start">
+          <img src="./assets/imgs/avatar.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{user.name}} {{user.lastname}}</h2>
+          <p>{{user.email}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentModalAddUser()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  </div>
+</ion-content>

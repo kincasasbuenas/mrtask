@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Tasks
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment scrollable [(ngModel)]="status">
+      <ion-segment-button value="open" class="primary">
+        <ion-icon name="open"></ion-icon>
+        <ion-label>Open</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="progress" class="warning">
+        <ion-icon name="trending-up"></ion-icon>
+          <ion-label>In progress </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="complete" class="success">
+        <ion-icon name="checkmark-circle"></ion-icon>
+          <ion-label>Complete </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="filed" class="medium">
+        <ion-icon name="filing"></ion-icon>
+        <ion-label>Filed </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="search" class="tertiary">
+        <ion-icon name="search"></ion-icon>
+        <ion-label>Search</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div [ngSwitch]="status">
+      <ion-list *ngSwitchCase="'open'" >
+        <div class="ion-padding">
+          <ion-card *ngFor="let taskopen of tasksOpen">
+            <ion-item>
+              <!--ion-icon name="pin" slot="start"></ion-icon-->
+              <ion-label>{{ taskopen.title }}</ion-label>
+              <ion-button fill="outline" slot="end">{{taskopen.name | username }}</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              {{ taskopen.description }}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'progress'">
+        <div class="ion-padding">
+          <ion-card *ngFor="let taskprogress of tasksProgress">
+            <ion-item>
+              <!--ion-icon name="pin" slot="start"></ion-icon-->
+              <ion-label>{{ taskprogress.title }}</ion-label>
+              <ion-button fill="outline" slot="end">{{taskprogress.name | username}}</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              {{ taskprogress.description }}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'complete'">
+        <div class="ion-padding">
+          <ion-card *ngFor="let taskcomplete of tasksComplete">
+            <ion-item>
+              <!--ion-icon name="pin" slot="start"></ion-icon-->
+              <ion-label>{{ taskcomplete.title }}</ion-label>
+              <ion-button fill="outline" slot="end">{{taskcomplete.name | username}}</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              {{ taskcomplete.description }}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'filed'">
+        <div class="ion-padding">
+          <ion-card *ngFor="let taskfiled of tasksFiled">
+            <ion-item>
+              <!--ion-icon name="pin" slot="start"></ion-icon-->
+              <ion-label>{{ taskfiled.title }}</ion-label>
+              <ion-button fill="outline" slot="end">{{taskfiled.name | username}}</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              {{ taskfiled.description }}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'search'">
+        <ion-searchbar showCancelButton="focus" placeholder="search a task" (ionInput)="search_task($event)"></ion-searchbar>
+
+        <div class="ion-padding">
+          <ion-card *ngFor="let taskq of _ts.results">
+            <ion-item>
+              <!--ion-icon name="pin" slot="start"></ion-icon-->
+              <ion-label>{{ taskq.title }}</ion-label>
+              <div [innerHTML]="taskq.status | status"></div>
+            </ion-item>
+            <ion-card-content>
+              {{ taskq.description }}
+            </ion-card-content>
+            <ion-item>
+              <ion-icon name="person" slot="start"></ion-icon>
+              <ion-label>{{taskq.name | username }}</ion-label>
+            </ion-item>
+          </ion-card>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="ModalAddTask()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
