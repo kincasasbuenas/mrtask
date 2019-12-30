@@ -8,6 +8,8 @@ import { ModalAddTaskPageRoutingModule } from './modal-add-task-routing.module';
 
 import { ModalAddTaskPage } from './modal-add-task.page';
 import { ModalSelectStatePageModule } from '../../pages/modal-select-state/modal-select-state.module';
+import { ModalSelectUserPageModule } from '../../pages/modal-select-user/modal-select-user.module';
+import { SharedpipesModule } from '../../pipes/sharedpipes.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { ModalSelectStatePageModule } from '../../pages/modal-select-state/modal
     FormsModule,
     IonicModule,
     ModalAddTaskPageRoutingModule,
-    ModalSelectStatePageModule
+    ModalSelectStatePageModule,
+    ModalSelectUserPageModule,
+    SharedpipesModule
   ],
   declarations: [ModalAddTaskPage]
 })

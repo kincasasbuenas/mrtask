@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController,NavController,  NavParams } from '@ionic/angular';
 import { ModalAddTaskPage } from '../../pages/modal-add-task/modal-add-task.page';
 
@@ -11,11 +11,14 @@ import { ModalAddTaskPage } from '../../pages/modal-add-task/modal-add-task.page
 export class ModalSelectStatePage implements OnInit {
 
   checkBoxStates:any;
-  idState=0;
+  idState:any;
+
+  @Input() idStatus: number;
 
   constructor(public modalCtrl: ModalController,
               private navCtrl:NavController,
               private navParams:NavParams) {
+
     this.checkBoxStates = [
       {
         name:"Open",
@@ -35,9 +38,15 @@ export class ModalSelectStatePage implements OnInit {
         idState:4
       }
     ];
+
+    //console.log('estado enviado '+ navParams.get('idStatus'));
+    this.idState=navParams.get('idStatus');
+    this.checkedState(navParams.get('idStatus'));
+
   }
 
   ngOnInit() {
+
   }
 
   checkEvent($e){
@@ -49,6 +58,14 @@ export class ModalSelectStatePage implements OnInit {
   async closeModal() {
     const onClosedData: number = this.idState;
     await this.modalCtrl.dismiss(onClosedData);
+  }
+
+  checkedState(id){
+    this.checkBoxStates.map(obj => {
+      if (obj.idState == id){
+        obj.isChecked=true;
+      }
+    });
   }
 
 }

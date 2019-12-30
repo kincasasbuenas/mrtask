@@ -29,17 +29,19 @@
         <ion-list-header>
           Assign information
         </ion-list-header>
-        <ion-item  (click)="ModalSelectState()">
+        <ion-item (click)="ModalSelectUser()">
           <ion-icon name="help"></ion-icon>
           <ion-label class="ion-margin-start">Sin Asignar</ion-label>
-          <ion-input name="user"
-                     type="email"></ion-input>
+          <ion-input name="user_email"
+                     [(ngModel)]="email"
+                     type="email" class="ion-hide"></ion-input>
         </ion-item>
-        <ion-item >
-          <ion-icon name="open"></ion-icon>
-          <ion-label class="ion-margin-start">Open</ion-label>
+        <ion-item (click)="ModalSelectState()">
+          <div [innerHTML]=" idState | status"></div>
+          <!--ion-label class="ion-margin-start">Open</ion-label-->
           <ion-input name="status"
-                     type="number"></ion-input>
+                    [(ngModel)]="idState"
+                     type="number" class="ion-hide"></ion-input>
         </ion-item>
 
       </ion-list>

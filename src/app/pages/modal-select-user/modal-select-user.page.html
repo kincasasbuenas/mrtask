@@ -5,18 +5,18 @@
               <ion-icon name="arrow-back"></ion-icon>
             </ion-button>
       </ion-buttons>
-     <ion-title>Select State</ion-title>
+     <ion-title>Select User</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let state of checkBoxStates">
+    <!--ion-item *ngFor="let state of checkBoxStates">
       <ion-label>{{state.name}}</ion-label>
       <ion-checkbox slot="start"
       value="{{state.idState}}"
       [(ngModel)]="state.isChecked"
       (ionChange)="checkEvent($event)" checked="{{ state.isChecked}}"></ion-checkbox>
-    </ion-item>
+    </ion-item-->
   </ion-list>
 </ion-content>

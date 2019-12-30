@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'modal-select-state',
     loadChildren: () => import('./pages/modal-select-state/modal-select-state.module').then( m => m.ModalSelectStatePageModule)
   },
+  {
+    path: 'modal-select-user',
+    loadChildren: () => import('./pages/modal-select-user/modal-select-user.module').then( m => m.ModalSelectUserPageModule)
+  },
 ];
 
 @NgModule({
