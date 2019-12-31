@@ -34,7 +34,7 @@ export class ModalAddUserPage implements OnInit {
           //console.log(data_resp['message']);
           this.presentToastSuccess(data_resp['message']);
         }else{
-          console.log('error creating user');
+          //console.log('error creating user');
         }
     })
   }
@@ -55,7 +55,7 @@ export class ModalAddUserPage implements OnInit {
     toast.onDidDismiss().then((resolve) => {
       this.closed();
     });
-    
+
     toast.present();
   }
 

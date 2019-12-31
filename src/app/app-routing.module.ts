@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'modal-select-user',
     loadChildren: () => import('./pages/modal-select-user/modal-select-user.module').then( m => m.ModalSelectUserPageModule)
   },
+  {
+    path: 'modal-edit-task',
+    loadChildren: () => import('./pages/modal-edit-task/modal-edit-task.module').then( m => m.ModalEditTaskPageModule)
+  },
 ];
 
 @NgModule({

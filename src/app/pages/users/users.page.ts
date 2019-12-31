@@ -13,17 +13,22 @@ export class UsersPage implements OnInit {
   listUser:any;
   constructor(private _us:UserService,
               public modalCtrl: ModalController) {
+              this.getListAllUsers();
+
+  }
+
+  ngOnInit() {
+  }
+
+  getListAllUsers(){
     this._us.getAllUsers().subscribe( data =>{
         if( data['error'] ){
           // manejar el error
         }else{
           this.listUser = data['users'];
-          console.log(this.listUser);
+          //console.log(this.listUser);
         }
     });
-  }
-
-  ngOnInit() {
   }
 
 
@@ -32,6 +37,11 @@ export class UsersPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ModalAddUserPage
     });
+    modal.onDidDismiss().then(() => {
+        this.getListAllUsers();
+        //console.log('update users');
+    });
+
     return await modal.present();
   }
 

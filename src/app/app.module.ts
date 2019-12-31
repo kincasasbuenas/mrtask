@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { ModalAddTaskPageModule } from './pages/modal-add-task/modal-add-task.module';
+import { ModalEditTaskPageModule } from './pages/modal-edit-task/modal-edit-task.module';
 
 import { NativeStorage }  from '@ionic-native/native-storage/ngx';
 import { HttpClientModule,HttpClientJsonpModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { UserService } from "../app/services/user/user.service";
   entryComponents: [],
   imports: [BrowserModule,
     ModalAddTaskPageModule,
+    ModalEditTaskPageModule,
     HttpClientModule,
     HttpClientJsonpModule,
     FormsModule,

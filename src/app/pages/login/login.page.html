@@ -54,12 +54,12 @@
                                #password="ngModel"></ion-input>
                   </ion-item>
                 </ion-list>
-                <ion-list *ngIf="email.touched" class="label-invalid">
+                <ion-list *ngIf="password.touched" class="label-invalid">
                   <div *ngIf="password.errors?.required && password.touched" class="invalid-feedback">
                     *password is required
                   </div>
                   <div *ngIf="password.errors?.minlength && password.touched" class="invalid-feedback">
-                    *Min {{password.errors.minlength.requiredLength}} characteres.
+                    *Min {{password.errors.minlength.requiredLength}} characters.
                   </div>
                 </ion-list>
             </ion-col>

@@ -8,7 +8,7 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-segment scrollable [(ngModel)]="status">
+    <ion-segment scrollable [(ngModel)]="status" color="{{color}}" (ionChange)="eventColor($event)">
       <ion-segment-button value="open" class="primary">
         <ion-icon name="open"></ion-icon>
         <ion-label>Open</ion-label>
@@ -38,7 +38,7 @@
     <div [ngSwitch]="status">
       <ion-list *ngSwitchCase="'open'" >
         <div class="ion-padding">
-          <ion-card *ngFor="let taskopen of tasksOpen">
+          <ion-card *ngFor="let taskopen of tasksOpen" (click)="updateTask(taskopen.id)">
             <ion-item>
               <!--ion-icon name="pin" slot="start"></ion-icon-->
               <ion-label>{{ taskopen.title }}</ion-label>
@@ -54,7 +54,7 @@
 
       <ion-list *ngSwitchCase="'progress'">
         <div class="ion-padding">
-          <ion-card *ngFor="let taskprogress of tasksProgress">
+          <ion-card *ngFor="let taskprogress of tasksProgress" (click)="updateTask(taskprogress.id)">
             <ion-item>
               <!--ion-icon name="pin" slot="start"></ion-icon-->
               <ion-label>{{ taskprogress.title }}</ion-label>
@@ -70,7 +70,7 @@
 
       <ion-list *ngSwitchCase="'complete'">
         <div class="ion-padding">
-          <ion-card *ngFor="let taskcomplete of tasksComplete">
+          <ion-card *ngFor="let taskcomplete of tasksComplete" (click)="updateTask(taskcomplete.id)">
             <ion-item>
               <!--ion-icon name="pin" slot="start"></ion-icon-->
               <ion-label>{{ taskcomplete.title }}</ion-label>
@@ -84,7 +84,7 @@
         </div>
       </ion-list>
 
-      <ion-list *ngSwitchCase="'filed'">
+      <ion-list *ngSwitchCase="'filed'" class="content-filed">
         <div class="ion-padding">
           <ion-card *ngFor="let taskfiled of tasksFiled">
             <ion-item>
@@ -104,7 +104,7 @@
         <ion-searchbar showCancelButton="focus" placeholder="search a task" (ionInput)="search_task($event)"></ion-searchbar>
 
         <div class="ion-padding">
-          <ion-card *ngFor="let taskq of _ts.results">
+          <ion-card *ngFor="let taskq of _ts.results" (click)="updateTask(taskq.id)">
             <ion-item>
               <!--ion-icon name="pin" slot="start"></ion-icon-->
               <ion-label>{{ taskq.title }}</ion-label>

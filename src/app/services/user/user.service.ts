@@ -35,7 +35,7 @@ export class UserService {
       let data_resp = resp;
       //console.log( data_resp );
       if( data_resp['error'] ){
-          console.log(data_resp['message']);
+          //console.log(data_resp['message']);
           this.presentAlert(data_resp['message']);
         }else{
           this.token = data_resp['token'];
@@ -139,6 +139,16 @@ export class UserService {
     //console.log(data);
 
     let url = `${ URL_API }/users/add_user/${ this.token }/${ this.userId }`;
+    return this.http.post( url, data ).pipe(map(resp=>resp));
+  }
+
+  getUserByEmail(email:string){
+    this.load_storage();
+
+    let data = new HttpParams()
+    .append('email', email );
+
+    let url = `${ URL_API }/users/user_email/${ this.token }/${ this.userId }`;
     return this.http.post( url, data ).pipe(map(resp=>resp));
   }
 
