@@ -8,9 +8,10 @@
         CustomLog ${APACHE_LOG_DIR}/access_apirest.log combined
     </VirtualHost>
  3. importar base de datos que esta dentro de apirest/database.sql/db_mrtask.sql
- 4. git clone https://github.com/Kincasasbuenaso/mrtask.git
- 5. ubicarse dentro de la raiz y ejecutar un npm install
- 6. para logearse ingresar con los siguientes datos
+ 4. el archivo de configuracion de la base de datos se encuentra en la siguiente ruta apirest/application/config/database.php
+ 5. git clone https://github.com/Kincasasbuenaso/mrtask.git
+ 6. ubicarse dentro de la raiz y ejecutar un npm install
+ 7. para logearse ingresar con los siguientes datos
     usuario: user@test.com
     password: 12345
- 7. sino se puede descargar la carpeta apirest dejo link de descarga aqui: https://drive.google.com/file/d/1zoFWvNiEiTcSGhXcPfZuFkN9uMQAcWYz/view?usp=sharing
+ 8. sino se puede descargar la carpeta apirest dejo link de descarga aqui: https://drive.google.com/file/d/1zoFWvNiEiTcSGhXcPfZuFkN9uMQAcWYz/view?usp=sharing
